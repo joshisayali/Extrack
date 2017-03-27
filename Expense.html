@@ -21,18 +21,63 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <a class="navbar-brand" href="#">Brand</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
-                <ul>
-                    <li>Home</li>
-                    <li>Expense</li>
-                    <li>Income</li>
-                    <li>Accounts</li>
-                    <li>Budget</li>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Expense</a></li>
+                    <li><a href="#">Income</a></li>
+                    <li><a href="#">Accounts</a></li>
+                    <li><a href="#">Budget</a></li> 
                 </ul>            
             </div>
         </div>
     </nav>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1>Expenses <small>Expesne for current month</small></h1>
+        </div>        
+    </header>
+      
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>                            
+                        </tr>
+                    </table>
+                </div>
+                main content goes here
+            </div>
+        </div>
+        
+    </div>
+      
+    <footer class="row-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p align=center>By Extrack</p>
+                </div>
+            </div>
+            
+        </div>        
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
