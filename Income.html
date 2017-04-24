@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Extrack</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li><a href="Expense.html">Expense</a></li>
+                    <li><a href="Income.html">Income</a></li>
+                    <li><a href="Accounts.html">Accounts</a></li>
+                    <li><a href="Budget.html">Budget</a></li> 
+                </ul>            
+            </div>
+        </div>
+    </nav>
+    
+    <header class="page-header">
+        <div class="container">
+            <h1>Expenses <small>Expesne for current month</small></h1>
+        </div>        
+    </header>
+      
+    <div class="container">
+        <!--<div class="row">
+            <div class="col-xs-12">
+                <h1>Expenses <small>Expesne for current month</small></h1>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                <form>
+                    <div class="form-group">
+                        <label for="fromDate">From Date</label>
+                        <input type="date" id="fromDate" class="form-control" placeholder="mm/dd/yyyy">
+                    </div>
+                    <div class="form-group">
+                        <label for="toDate">To Date</label>
+                        <input type="date" id="toDate" class="form-control" placeholder="mm/dd/yyyy">
+                    </div>
+                    <button type="submit" class="btn btn-default">Filter</button>
+                </form>
+            </div>
+            <div class="col-xs-12 col-md-10">                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>When?</th>
+                                <th>What?</th>
+                                <th>How much?</th>                                
+                                <th>Category</th>                                                           
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>XYZ Salary</td>
+                                <td>1000</td>
+                                <td>Salary</td>
+                            </tr>
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>XYZ</td>
+                                <td>200</td> 
+                                <td>Property Income</td>
+                            </tr> 
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>Bonds</td>
+                                <td>20</td> 
+                                <td>Investments</td>
+                            </tr>
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>Bonds</td>
+                                <td>100</td> 
+                                <td>Gift Card/Cash</td>
+                            </tr>
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>XYZ Reward</td>
+                                <td>100</td> 
+                                <td>Rewards</td>
+                            </tr>
+                        </tbody> 
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td>1420</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                            
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </div>   
+      
+      
+    <footer class="row-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5">                    
+                    <ul class="list-inline">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>                        
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2">
+                    <p align=center>By Extrack</p>
+                </div>
+                 <div class="col-xs-5">
+                    <p align=center>Social media icons</p>
+                </div>
+            </div>
+            
+        </div>        
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

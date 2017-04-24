@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,7 +19,7 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -31,11 +32,11 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Expense</a></li>
-                    <li><a href="#">Income</a></li>
-                    <li><a href="#">Accounts</a></li>
-                    <li><a href="#">Budget</a></li> 
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li><a href="Expense.html">Expense</a></li>
+                    <li><a href="Income.html">Income</a></li>
+                    <li><a href="Accounts.html">Accounts</a></li>
+                    <li><a href="Budget.html">Budget</a></li> 
                 </ul>            
             </div>
         </div>
@@ -48,31 +49,153 @@
     </header>
       
     <div class="container">
-        <div class="row">
+        <!--<div class="row">
             <div class="col-xs-12">
+                <h1>Expenses <small>Expesne for current month</small></h1>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+                <form>
+                    <div class="form-group">
+                        <label for="fromDate">From Date</label>
+                        <input type="date" id="fromDate" class="form-control" placeholder="mm/dd/yyyy">
+                    </div>
+                    <div class="form-group">
+                        <label for="toDate">To Date</label>
+                        <input type="date" id="toDate" class="form-control" placeholder="mm/dd/yyyy">
+                    </div>
+                    <button type="submit" class="btn btn-default">Filter</button>
+                </form>
+            </div>
+            <div class="col-xs-12 col-md-10">                
                 <div class="table-responsive">
-                    <table class="table table-hover">
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>                            
-                        </tr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>When?</th>
+                                <th>What?</th>
+                                <th>How much?</th>                            
+                                <th>How?</th>
+                                <th>Category</th>
+                                <th>Repeat</th>                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th colspan="6">Home</th>
+                            </tr>
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>XYZ Appartments</td>
+                                <td>1000</td>                            
+                                <td>Cheque</td>
+                                <td>Rent/Mortgage</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <td>04/01/2017</td>
+                                <td>XYZ Insurance</td>
+                                <td>20</td>                            
+                                <td>Credit</td>
+                                <td>Renter’s/Home Insurance</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6">Bills and Utilities</th>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ</td>
+                                <td>50</td>                            
+                                <td>Credit</td>
+                                <td>Electricity</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ</td>
+                                <td>50</td>                            
+                                <td>Credit</td>
+                                <td>Water</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6">Auto and Transport</th>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ Gas Station</td>
+                                <td>30</td>                            
+                                <td>Credit</td>
+                                <td>Gas/Fuel</td>
+                                <td>Random</td>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ Insurance</td>
+                                <td>30</td>                            
+                                <td>Credit</td>
+                                <td>Auto Insurance</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6">Health and Fitness</th>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ Gym</td>
+                                <td>200</td>                            
+                                <td>Credit</td>
+                                <td>Fitness Center</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <th colspan="6">Education and Career</th>
+                            </tr>
+                            <tr>
+                                <th colspan="6">Fun Activities</th>
+                            </tr>
+                            <tr>
+                                <td>04/02/2017</td>
+                                <td>XYZ Theatre</td>
+                                <td>20</td>                            
+                                <td>Cash</td>
+                                <td>Movie</td>
+                                <td>Random</td>
+                            </tr>
+                        </tbody> 
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td>1400</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                            
+                        </tfoot>
                     </table>
                 </div>
-                main content goes here
             </div>
-        </div>
-        
-    </div>
+        </div>        
+    </div>   
+      
       
     <footer class="row-footer">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-5">                    
+                    <ul class="list-inline">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>                        
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2">
                     <p align=center>By Extrack</p>
+                </div>
+                 <div class="col-xs-5">
+                    <p align=center>Social media icons</p>
                 </div>
             </div>
             
