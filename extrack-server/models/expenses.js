@@ -52,9 +52,9 @@ var expenseSchema = new Schema(
         expenseDate:{type:Date, required:true},
         expenseItem:{type:String, required:true},
         expenseAmount:{type:Number, required:true},
-        expensePayment: expensePaymentSchema,
-        expenseSubCategory: expenseSubCategorySchema,
-        expenseRepeat:expenseRepeatSchema
+        expensePayment: {type:String, required:true},
+        expenseSubCategory: {type:String, required:true},
+        expenseRepeat:{type:String, required:true}
     },
     {
         timestamps:true
