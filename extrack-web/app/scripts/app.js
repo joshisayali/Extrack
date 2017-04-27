@@ -20,6 +20,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+    .when('/expense', {
+        templateUrl: 'views/expense.html',
+        controller:'ExpenseController'       
+      })
       .otherwise({
         redirectTo: '/'
       });
