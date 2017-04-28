@@ -11,20 +11,32 @@
 angular
   .module('extrackWebApp', [
     'ngResource',
-    'ngRoute'
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-    .when('/expense', {
-        templateUrl: 'views/expense.html',
-        controller:'ExpenseController'       
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    .state('app',{
+        url:'/',
+        views:{
+            'header': {
+                template : '<h1>To be completed</h1>'
+            },
+            'content': {
+                template : '<h1>To be Completed</h1>'               
+            },
+            'footer': {
+                template : '<h1>To be Completed</h1>'
+            }
+        }
+    })
+    .state('app.expense',{
+        url:'expense',
+        views:{
+            'content@':{
+                templateUrl:'views/expense.html',
+                controller: 'ExpenseController'
+            }
+        }
+    });
+    $urlRouterProvider.otherwise('/');
   });
