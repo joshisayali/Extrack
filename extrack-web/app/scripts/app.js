@@ -19,13 +19,13 @@ angular
         url:'/',
         views:{
             'header': {
-                template : '<h1>To be completed</h1>'
+                templateUrl : 'views/header.html'
             },
             'content': {
                 template : '<h1>To be Completed</h1>'               
             },
             'footer': {
-                template : '<h1>To be Completed</h1>'
+                templateUrl : 'views/footer.html'
             }
         }
     })
@@ -37,6 +37,6 @@ angular
                 controller: 'ExpenseController'
             }
         }
-    });
+    });    
     $urlRouterProvider.otherwise('/');
   });
