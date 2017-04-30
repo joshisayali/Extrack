@@ -38,6 +38,36 @@ expenseRouter.route('/')
         }        
     });
 })
-.delete();
+.delete(function(req,res,next){
+    Expenses.remove({},function(err,resp){
+        if(err) throw err;
+        res.json(resp);
+    });
+});
+
+expenseRouter.route('/:expenseId')
+.get(function(req,res,next){
+    Expenses.findById(req.params.expenseId)
+    .populate('expensePayment')
+    .populate('expenseSubCategory')  
+    .populate('expenseRepeat')
+    .exec(function(err,expense){
+        if(err) throw err;
+        //console.log(expenses[0]);
+        res.json(expense);
+    });
+})
+.put(function(req,res,next){
+    Expenses.findByIdAndUpdate(req.params.expenseId,{$set:req.body},{new:true},function(err,expense){
+        if(err) throw err;
+        res.json(expense);
+    })
+})
+.delete(function(req,res,next){
+    Expenses.findByIdAndRemove(req.params.expenseId, function(err,resp){
+        if(err) throw err;
+        res.json(resp);
+    })
+});
 
 module.exports = expenseRouter;
