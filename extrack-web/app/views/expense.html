@@ -128,21 +128,45 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th colspan="7">Home</th>
+                            <th colspan="7">Home</th>                            
                         </tr>
-                        <tr ng-repeat="expense in expenses">
-                            <td>{{expense.expenseDate}}</td>
+                        <tr ng-repeat="expense in expenses" ng-show="expense._id == editModeId"> 
+                            <td><input type="text" class="form-control" id="editexpenseDate" name="editexpenseDate" ng-model="expense.expenseDate | date : 'MM/dd/yyyy'"></td>
+                            <td><input type="text" class="form-control" id="editexpenseItem" name="editexpenseItem" ng-model="expense.expenseItem"></td>
+                            <td><input type="text" class="form-control" id="editexpenseAmount" name="editexpenseAmount" ng-model="expense.expenseAmount"></td>
+                            <td>
+                                <select class="form-control" id="editexpensePayment" name="editexpensePayment" ng-model="expense.expensePayment.expensePaymentMode" ng-options="payment._id as payment.expensePaymentMode for payment in expensePayments" >
+                                    <option value="">Select</option>                                
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control" id="editexpenseSubCategory" name="editexpenseSubCategory" ng-model="expense.expenseSubCategory.expenseSubCategoryName" ng-options="subcategory._id as subcategory.expenseSubCategoryName for subcategory in expenseSubCategories">
+                                    <option value="">Select</option>                                
+                            </select>
+                            </td>
+                            <td>
+                                <select class="form-control" id="editexpenseRepeat" name="editexpenseRepeat" ng-model="expense.expenseRepeat.expenseRepeatFrequency" ng-options="repeat._id as repeat.expenseRepeatFrequency for repeat in expenseRepeats">
+                                     <option value="">Select</option>                           
+                                </select>
+                            </td>                              
+                            <td>
+                                <a ui-sref="#"><i class="fa fa-lg fa-floppy-o fa-fw text-info"></i></a>
+                                <a ui-sref="#" ng-click="toggleEditMode()"><i class="fa fa-lg fa-close fa-fw text-danger"></i></a>
+                            </td>                             
+                        </tr>
+                        <tr ng-repeat="expense in expenses" ng-hide="expense._id == editModeId">
+                            <td>{{expense.expenseDate | date : 'MM/dd/yyyy'}}</td>
                             <td>{{expense.expenseItem}}</td>
                             <td>{{expense.expenseAmount}}</td>
                             <td>{{expense.expensePayment.expensePaymentMode}}</td>
                             <td>{{expense.expenseSubCategory.expenseSubCategoryName}}</td>
                             <td>{{expense.expenseRepeat.expenseRepeatFrequency}}</td>
                             <td>
-                                <a href="#"><i class="fa fa-2x fa-edit fa-fw text-info"></i></a>
-                                <a href="#"><i class="fa fa-2x fa-close fa-fw text-danger"></i></a>
-                            </td> 
-                            
-                        </tr>                        
+                                <a ui-sref="#" ng-click="toggleEditMode(expense._id)"><i class="fa fa-lg fa-edit fa-fw text-info"></i></a>
+                                <a ui-sref="#"><i class="fa fa-lg fa-trash-o fa-fw text-danger"></i></a>
+                            </td>                             
+                        </tr>
+                        
                     </tbody>
                     <tfoot>
                         <tr>

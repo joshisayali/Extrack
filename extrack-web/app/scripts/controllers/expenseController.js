@@ -1,11 +1,13 @@
 'use strict';
 angular.module('extrackWebApp')
 .controller('ExpenseController', ['$scope','expenseFactory', function($scope, expenseFactory){
+    //variables
     $scope.message = 'this is expense controller';
+    $scope.editMode = false;
     $scope.newExpense = {expenseDate:'',expenseItem:'',expenseAmount:'',expensePayment:'',expenseSubCategory:'',expenseRepeat:''};
     $scope.filterData = {fromDate:'',toDate:''};
     
-    
+    //routes
     $scope.expenses = expenseFactory.getExpenses().query(
         function(response){
             $scope.expenses = response;
@@ -43,6 +45,7 @@ angular.module('extrackWebApp')
             console.log('Error: '+error);
         });
     
+    //functions
     $scope.createExpense = function(){
         
         console.log($scope.newExpense);
@@ -77,6 +80,11 @@ angular.module('extrackWebApp')
         
         $scope.filterData = {fromDate:'',toDate:''};       
         $scope.filterForm.$setPristine();
+    };
+    
+    $scope.toggleEditMode = function(id){
+        $scope.editMode = !$scope.editMode;
+        $scope.editModeId = id;
     };
     
     //display total amount
