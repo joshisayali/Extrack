@@ -3,6 +3,8 @@ angular.module('extrackWebApp')
 .controller('ExpenseController', ['$scope','expenseFactory', function($scope, expenseFactory){
     $scope.message = 'this is expense controller';
     $scope.newExpense = {expenseDate:'',expenseItem:'',expenseAmount:'',expensePayment:'',expenseSubCategory:'',expenseRepeat:''};
+    $scope.filterData = {fromDate:'',toDate:''};
+    
     
     $scope.expenses = expenseFactory.getExpenses().query(
         function(response){
@@ -47,6 +49,34 @@ angular.module('extrackWebApp')
         expenseFactory.getExpenses().create($scope.newExpense);
         $scope.newExpense = {expenseDate:'',expenseItem:'',expenseAmount:'',expensePayment:'',expenseSubCategory:'',expenseRepeat:''};
         $scope.createExpenseForm.$setPristine();
+    };
+    
+    $scope.filterExpenses = function(){
+        var fromDate = Date.parse($scope.filterData.fromDate);
+        var toDate = Date.parse($scope.filterData.toDate);
+        console.log('Expense controller:' + fromDate + ',' + toDate);
+        
+        /*$scope.expenses = expenseFactory.getExpenses().query(
+            {from:fromDate,to:toDate},
+            function(response){
+                $scope.expenses = response;
+
+            },function(error){
+                console.log('Error: '+error);
+            }
+        );*/        
+        
+        $scope.expenses = expenseFactory.getSpecificExpenses().query(
+            {from:fromDate,to:toDate},
+            function(response){
+                $scope.expenses = response;
+            },
+            function(error){
+                console.log('Error: '+error);
+            });
+        
+        $scope.filterData = {fromDate:'',toDate:''};       
+        $scope.filterForm.$setPristine();
     };
     
     //display total amount

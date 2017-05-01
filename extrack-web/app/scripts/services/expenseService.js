@@ -5,7 +5,11 @@ angular.module('extrackWebApp')
     
     this.getExpenses = function(){
         return $resource(baseURL+'expenses',null,{create:{method:'POST'}});   
-    };  
+    }; 
+    
+    this.getSpecificExpenses = function(){        
+        return $resource(baseURL+'expenses/:from-:to');
+    };
     
     this.getExpenseCategories = function(){
         return $resource(baseURL+'expensecategories');

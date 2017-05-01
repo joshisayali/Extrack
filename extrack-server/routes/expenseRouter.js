@@ -15,6 +15,7 @@ expenseRouter.route('/')
 .get(function(req,res,next){    
     
    Expenses.find({})
+    .sort('-expenseDate')
     .populate('expensePayment')
     .populate('expenseSubCategory')  
     .populate('expenseRepeat')
@@ -42,6 +43,24 @@ expenseRouter.route('/')
     Expenses.remove({},function(err,resp){
         if(err) throw err;
         res.json(resp);
+    });
+});
+
+expenseRouter.route('/:from-:to')
+.get(function(req,res,next){
+    //var fromDate = Date.parse(req.params.from);
+    //var toDate = Date.parse(req.params.to);
+    console.log('Expense router:'+req.params.from + ','+req.params.to);
+    
+    Expenses.find({})
+    .where('expenseDate').gte(req.params.from).lte(req.params.to)
+    .populate('expensePayment')
+    .populate('expenseSubCategory')  
+    .populate('expenseRepeat')
+    .sort('-expenseDate')
+    .exec(function(err,expenses){
+       if(err) throw err;
+        res.json(expenses);
     });
 });
 
