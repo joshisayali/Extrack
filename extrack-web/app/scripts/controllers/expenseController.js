@@ -107,17 +107,42 @@ angular.module('extrackWebApp')
         
     };
     
+    $scope.deleteExpense = function(id){
+        
+         expenseFactory.getExpenses().delete({id:id})
+        .$promise.then(
+            function(resp){
+                console.log(resp);
+                $scope.expenses = expenseFactory.getExpenses().query(
+                    function(response){
+                        $scope.expenses = response;
+
+                    },function(error){
+                        console.log('Error: '+error);
+                    });
+            },
+            function(error){
+                console.log(error);
+            });
+        
+    };
+    
     $scope.toggleEditMode = function(id){
         $scope.editMode = !$scope.editMode;
         $scope.editModeId = id;
     };
     
-    //display total amount
-    $scope.total = 0;
-    for(var i=0; i < $scope.expenses.length; i++)
+    //display total amount     
+    $scope.getTotal = function(){ 
+        var total = 0;
+        for(var i=0; i < $scope.expenses.length; i++)
         {
-            $scope.total += $scope.expenses[i].expenseAmount;
+            total += $scope.expenses[i].expenseAmount;
+            
         }
+        return total;
+    };        
+    
 }]);
             
             

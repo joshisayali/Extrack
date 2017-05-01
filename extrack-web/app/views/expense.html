@@ -6,7 +6,7 @@
                 <div class="page-header">
                     <h1>Expense
                         <font color="#777777">
-                            <span style="font-size: 23.4px; line-height: 23.4px;">Expenses for current month</span>
+                            <span style="font-size: 23.4px; line-height: 23.4px;">Your Expenses</span>
                         </font>
                     </h1>
                 </div>
@@ -165,8 +165,8 @@
                             <td>{{expense.expenseSubCategory.expenseSubCategoryName}}</td>
                             <td>{{expense.expenseRepeat.expenseRepeatFrequency}}</td>
                             <td>
-                                <a ui-sref="#" ng-click="toggleEditMode(expense._id)"><i class="fa fa-lg fa-edit fa-fw text-info"></i></a>
-                                <a ui-sref="#"><i class="fa fa-lg fa-trash-o fa-fw text-danger"></i></a>
+                                <a ng-click="toggleEditMode(expense._id)"><i class="fa fa-lg fa-edit fa-fw text-info"></i></a>
+                                <a ng-click="deleteExpense(expense._id)"><i class="fa fa-lg fa-trash-o fa-fw text-danger"></i></a>
                             </td>                             
                         </tr>                        
                     </tbody>
@@ -175,7 +175,7 @@
                             <td colspan="2">
                                 <strong>Total</strong>
                             </td>
-                            <td>{{total}}</td>
+                            <td>{{getTotal()}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
