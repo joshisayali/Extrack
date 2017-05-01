@@ -4,7 +4,7 @@ angular.module('extrackWebApp')
 .service('expenseFactory',['$resource','baseURL',function($resource,baseURL){
     
     this.getExpenses = function(){
-        return $resource(baseURL+'expenses',null,{create:{method:'POST'}});   
+        return $resource(baseURL+'expenses/:id',null,{'create':{method:'POST'},'update':{method:'PUT'}});          
     }; 
     
     this.getSpecificExpenses = function(){        

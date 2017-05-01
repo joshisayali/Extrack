@@ -82,6 +82,31 @@ angular.module('extrackWebApp')
         $scope.filterForm.$setPristine();
     };
     
+    $scope.saveExpense = function(expense){
+        $scope.expense = expense;
+        console.log('Save Expense');
+        console.log($scope.expense);
+        
+        expenseFactory.getExpenses().update({id:$scope.expense._id},$scope.expense)
+        .$promise.then(
+            function(resp){
+                console.log(resp);
+                $scope.expenses = expenseFactory.getExpenses().query(
+                    function(response){
+                        $scope.expenses = response;
+
+                    },function(error){
+                        console.log('Error: '+error);
+                    });
+            },
+            function(error){
+                console.log(error);
+            });
+        
+        $scope.toggleEditMode();
+        
+    };
+    
     $scope.toggleEditMode = function(id){
         $scope.editMode = !$scope.editMode;
         $scope.editModeId = id;
