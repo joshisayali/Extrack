@@ -22,7 +22,8 @@ angular
                 templateUrl : 'views/header.html'
             },
             'content': {
-                templateUrl : 'views/home.html'               
+                templateUrl : 'views/home.html',
+                controller: 'HomeController'
             },
             'footer': {
                 templateUrl : 'views/footer.html'
